@@ -1,15 +1,21 @@
 # TAPL
 
 **TAPL**: **T**elegram **A**nonymous **P**hone-number **L**ending
+
 Find us on Telegram: [@tap_lending_bot](https://t.me/tap_lending_bot)
 
-> OPENSOURCE CODE: don't Trust, Verify.
->
-> PLATFORM/SERVICE: well, no other choice ¯\\\_(ツ)\_/¯
+...in case you just want to jump into codes:
+- [TON-NFT-Lending](https://github.com/RainBoltz/TAPL/tree/main/ton-nft-lending): a framework for NFT lending on TON blockchain. This contains most of the business logic of TAPL.
+- [TAPL-Bot](https://github.com/RainBoltz/TAPL/tree/main/tapl-bot): the Telegram Bot for TAPL. This is the frontend interface of TAPL.
+
+
+> Don't Trust, Verify!
 
 ## Introduction
 
 TAPL is a platform that allows you to lend your [Telegram Anonymous Phone-number](https://telegram.org/blog/ultimate-privacy-topics-2-0) (or some called "Anonymous Telegram Phone-number") to other people easily. The platform is based on the [Telegram](https://telegram.org/) messaging app and is represented by a [Telegram Bot](https://core.telegram.org/bots).
+
+> isn't this **CENTRALIZED** 😡🤮🤢? Well, no other choice before we develope the contracts 🥺
 
 ### Why do I need TAPL?
 
