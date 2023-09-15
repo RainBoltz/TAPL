@@ -2,28 +2,35 @@
 
 ## Overview
 
-This is the Telegram Bot of Anonymous Number Lendings.
+The Telegram Bot service of TAPL. This is currently the only interface to interact with TAPL.
 
 ## Prerequisites
 
-### Installation
+- Python 3.8+ with pip
+- Telegram Bot Token (please contact [@BotFather](https://t.me/BotFather), tutorial: https://core.telegram.org/bots#6-botfather)
+
+### install dependencies
 
 ```bash
 $ cd tapl-bot
 $ pip3 install -r requirements.txt
 ```
 
-### Check Configuration
+### check configurations
 
-- variable `telegram_bot_token` in file `tap-bot/main.py`
+- `main.py`: rename variable **ENVIRONMENT** based on your environment, which will read the corresponding `.[ENVIRONMENT].env` file
+- `.[ENVIRONMENT].env` file (ref `.env.sample`)
+  - **TELEGRAM_BOT_TOKEN**: Telegram Bot Token
 
 ## Usage
 
-### start telegram bot
+### start Telegram bot
+
+This is the `Telegram Bot` in the architecture diagram.
+
+It will provide the frontend interface on Telegram for users to interact with.
 
 ```bash
 $ cd tapl-bot
 $ python3 main.py
 ```
-
-## WIP

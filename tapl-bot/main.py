@@ -4,7 +4,8 @@ from datetime import datetime
 import os
 from dotenv import load_dotenv
 
-load_dotenv(os.path.dirname(os.path.realpath(__file__)) + "/.test.env") # or .main.env
+ENVIRONMENT = "test" # or "prod" / "main"
+load_dotenv(os.path.dirname(os.path.realpath(__file__)) + f"/.{ENVIRONMENT}.env")
 
 
 # python telegram bot 13.x
