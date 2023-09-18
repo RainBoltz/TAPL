@@ -18,8 +18,8 @@ $ pip3 install -r requirements.txt
 
 ### check configurations
 
-- `main.py`: rename variable **ENVIRONMENT** based on your environment, which will read the corresponding `.[ENVIRONMENT].env` file
-- `.[ENVIRONMENT].env` file (ref `.env.sample`)
+- `main.py`: rename variable **TAPL_ENV** based on your environment, which will read the corresponding `.[TAPL_ENV].env` file
+- `.[TAPL_ENV].env` file (ref `.env.sample`)
   - **TELEGRAM_BOT_TOKEN**: Telegram Bot Token
 
 ## Usage
@@ -28,7 +28,7 @@ $ pip3 install -r requirements.txt
 
 This is the `Telegram Bot` in the architecture diagram.
 
-It will provide the frontend interface on Telegram for users to interact with.
+> It will provide the frontend interface on Telegram for users to interact with.
 
 ```bash
 $ cd tapl-bot

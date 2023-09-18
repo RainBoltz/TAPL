@@ -4,7 +4,8 @@ from datetime import datetime
 import os
 from dotenv import load_dotenv
 
-ENVIRONMENT = "test" # or "prod" / "main"
+TAPL_ENV = os.getenv("TAPL_ENV")
+ENVIRONMENT = TAPL_ENV if TAPL_ENV else "test"
 load_dotenv(os.path.dirname(os.path.realpath(__file__)) + f"/.{ENVIRONMENT}.env")
 
 
