@@ -1,0 +1,22 @@
+{
+  "name": "fragment-login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tonapps/tonlogin-client": "^0.2.5",
+    "base64url": "^3.0.1",
+    "filereader": "^0.10.3",
+    "jimp": "^0.22.10",
+    "qrcode-reader": "^1.0.4",
+    "ton": "^13.6.1",
+    "ton-core": "^0.52.0",
+    "ton-crypto": "^3.2.0",
+    "ts-node": "^10.9.1"
+  }
+}

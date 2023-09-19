@@ -162,3 +162,5 @@ cython_debug/
 .*.env
 .DS_Store
 *.exe
+
+**/*/node_modules/**/*
