@@ -5,16 +5,21 @@ const { Builder, By } = require("selenium-webdriver");
 const { blobExtractionScript, readQRCode, sleep } = require("./utils.js");
 
 async function main() {
-  //0. open web page using Selenium
+  /**
+   * 0. open web page using Selenium
+   */
   const driver = new Builder()
-    .forBrowser("safari") // chrome version > 114 is now unavailable
+    .forBrowser("safari") // chromedriver with version > 114 is now unavailable
     .setChromeOptions()
     .build();
 
   await driver.get("https://fragment.com");
   await sleep(1000);
 
-  //1. get deeplink using tricks
+  /**
+   * 1. get deeplink
+   * (VERY TRICKY, YOU DON'T NEED TO UNDERSTAND THIS PART)
+   */
   const loginBtns = await driver.findElements(
     By.xpath("//button[contains(@class, 'ton-auth-link')]")
   );
@@ -47,12 +52,16 @@ async function main() {
   const deeplink = await readQRCode(buffer);
   console.log(`deeplink: ${deeplink}`);
 
-  //2. get Auth Request received from @tonapps/tonlogin-server
+  /**
+   * 2. get 'Auth Request' from deeplink
+   */
   const reqUrl = deeplink.replace("app.tonkeeper.com/ton-login/", "");
   const request = await fetch(reqUrl).then((res) => res.json());
 
-  //3. initialize wallet and settings
-  // (ref: https://github.com/tonkeeper/wallet/blob/develop/packages/mobile/src/core/TonConnect/TonConnectModal.tsx)
+  /**
+   * 3. initialize wallet and settings
+   * reference: https://github.com/tonkeeper/wallet/blob/develop/packages/mobile/src/core/TonConnect/TonConnectModal.tsx
+   */
   const mnemonic = await mnemonicNew(24);
   const keys = await mnemonicToWalletKey(mnemonic);
   const fundingWallet = WalletContractV4.create({
@@ -76,15 +85,14 @@ async function main() {
   console.log(`Public Key: ${publicKey}`);
   console.log(`Private Key: ${privateKey}`);
 
-  //4. create request to @tonapps/tonlogin-server
-  // (ref: https://github.com/tonkeeper/ton-connect/blob/main/TonConnectSpecification.md)
+  /**
+   * 4. build payload and get response from tonlogin-server
+   * reference: https://github.com/tonkeeper/ton-connect/blob/main/TonConnectSpecification.md
+   */
   let signedHash = "";
   let callbackUrl = "";
   try {
-    // If a validation error occurs, constructor throw exception.
     const tonlogin = new TonLoginClient(request);
-
-    // Create response with payload
     const response = await tonlogin.createResponse({
       service,
       seed: privateKey,
@@ -119,7 +127,10 @@ async function main() {
     console.log(error);
   }
 
-  //5. send response to @tonapps/tonlogin-server
+  /**
+   * 5. send authenticated payload back to tonlogin-server
+   * we will get verified on this step
+   */
   const verUrl = new URL(`${callbackUrl}&tonlogin=${signedHash}`);
   const response = await fetch(verUrl, {
     method: "GET",
@@ -127,7 +138,10 @@ async function main() {
 
   console.log(response);
 
-  //6. close browser after 30 seconds [Optional]
+  /**
+   * 6. close browser after 30 seconds
+   * [Optional]
+   */
   await sleep(30000);
   await driver.quit();
 }
