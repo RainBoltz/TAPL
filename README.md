@@ -3,17 +3,21 @@
 ![TAPL Logo](imgs/tapl-logo.jpg)
 
 ![GitHub license](https://img.shields.io/github/license/RainBoltz/TAPL)
+![GitHub repo size](https://img.shields.io/github/repo-size/RainBoltz/TAPL)
+![GitHub issues](https://img.shields.io/github/issues/RainBoltz/TAPL)
+![GitHub last commit](https://img.shields.io/github/last-commit/RainBoltz/TAPL)
 
 **TAPL**: **T**elegram **A**nonymous **P**hone-number **L**ending platform
 
 Find us on Telegram: [@tap_lending_bot](https://t.me/tap_lending_bot)
 
 ...in case you just want to jump into codes:
+
 - [TON-NFT-Lending](https://github.com/RainBoltz/TAPL/tree/main/ton-nft-lending): a framework for NFT lending on TON blockchain. This contains most of the business logic of TAPL.
 - [TAPL-Bot](https://github.com/RainBoltz/TAPL/tree/main/tapl-bot): the Telegram Bot for TAPL. This is the frontend interface of TAPL.
+- [Fragment-login](https://github.com/RainBoltz/TAPL/tree/main/fragment-login): a script that shows how to login fragment.com programmatically without TonKeeper.
 
-
-> Don't Trust, Verify!
+> Don't Trust, Just Verify!
 
 ## Introduction
 
@@ -56,7 +60,7 @@ A TAP is a kind of [Non-Fungible Token](https://en.wikipedia.org/wiki/Non-fungib
 
 1. Get a borrowing instructions from [TAPL Bot](https://t.me/tap_lending_bot).
 2. Borrow the TAP by following the instructions (using command `/borrow`).
-3. You temporarily owns the TAP until the lending period expires. Check the TAP status any time (using command `/myaccount`). You can get the corresponding Login Code though TAPL Bot (using command `/getcode`). 
+3. You temporarily owns the TAP until the lending period expires. Check the TAP status any time (using command `/myaccount`). You can get the corresponding Login Code though TAPL Bot (using command `/getcode`).
 4. You can register on Telegram with the Login Code. Note that when the lending period expires, you can't get the Login Code anymore so you can't access to the Telegram account with the TAP anymore.
 
 ## Diagrams
